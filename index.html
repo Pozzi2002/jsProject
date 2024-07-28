@@ -4,9 +4,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My first JS</title>
+        <style>
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex: 1;
+            }
+        </style>
     </head>
     <body>
+        <h1 style="text-align:center; margin-top: 200px">Rock Paper Scissors!&#128152</h1>
+        <h2 style="text-align:center">Press button to play a game. Console version</h2>
+        <h2 style="text-align:center; color:green">Open the console before play - F12 and choose tab "console" </h2>
+    <div class="container">
+        <button id="but" onclick="play()" style="font-size:25px; padding: 10px; border-radius: 33px;">Play game</button>
+    </div>
         <script src="./js.js">
+
         </script>
     </body>
  </html>
