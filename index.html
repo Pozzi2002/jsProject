@@ -3,26 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My first JS</title>
-        <style>
-            .container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-                flex: 1;
-            }
-        </style>
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1 style="text-align:center; margin-top: 200px">Rock Paper Scissors!&#128152</h1>
-        <h2 style="text-align:center">Press button to play a game. Console version</h2>
-        <h2 style="text-align:center; color:green">Open the console before play - F12 and choose tab "console" </h2>
+        <div id ="header">
+            <h1>Richi Project 2024</h1>
+            </div>
+        <div id="center">
+        <h1>Rock  Paper  Scissors&#128377</h1>
+    </div>
     <div class="container">
-        <button id="but" onclick="play()" style="font-size:25px; padding: 10px; border-radius: 33px;">Play game</button>
+        <h2> Your choice:</h2>
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissors">Scissors</button>
+    </div>
+    <div id="score">
+        <h2 class="yourScore">Your choice:</h2>
+        <h2 class="counter">Score(You : Enemy)</h2>
+        <h2 class="computerScore">Computer choice</h2>
     </div>
         <script src="./js.js">
-
         </script>
     </body>
  </html>

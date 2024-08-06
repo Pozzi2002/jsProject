@@ -1,39 +1,36 @@
+//Declare variable
 let humanScore = 0;
 let computerScore = 0;
+let computerSelection;
+let humanSelection;
 
-function play() {
-while (humanScore < 5 && computerScore < 5) {
-    playGame();
-    sex(humanScore, computerScore);
- } 
+// Win and lose function
+function countt(humanScore){
+if (humanScore == 5) {
+   alert("You are win!")
+   window.location.reload()
+} else if (computerScore == 5){
+    alert("You are lose!")
+    window.location.reload()
 }
-function sex(humanScore, computerScore) {
-    if (humanScore == 5) {
-        alert("You are win!!!")
-    } else if (computerScore == 5){
-        alert("You are lose!!!")
+}
+
+//ComputerChoice
+function getComputerChoice() {
+    let computer = (Math.random().toFixed(1) * 90);
+    if (computer < 30) {
+        return "rock"
+    } else if (computer < 60) {
+        return "paper"
+    } else {
+        return "scissors"
     }
 }
 
 
-function playGame() {
-    function getComputerChoice() {
-        let computer = (Math.random().toFixed(1) * 90);
-        if (computer < 30) {
-            return "rock"
-        } else if (computer < 60) {
-            return "paper"
-        } else {
-            return "scissors"
-        }
-    }
-
-    function getHumanChoice() {
-        return prompt("Your choice (Rock / Paper / Scissors): ");
-    }
-
-
+//Condition
 function playRound(humanChoice, computerChoice) {
+    countt(humanScore)
     if(humanChoice == "ROCK" && computerChoice == "SCISSORS") {
         ++humanScore;
         return console.log("You win! Rock beats Scissors") ;
@@ -63,15 +60,40 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+//DOM and Event Listeners
+const rock = document.querySelector("#Rock")
+const paper = document.querySelector("#Paper")
+const scissors = document.querySelector("#Scissors")
+const myScore = document.querySelector(".yourScore")
+const myScore2 = myScore.textContent;
+const enemyScore = document.querySelector(".computerScore")
+const enemyScore2 = myScore.textContent;
+const counter = document.querySelector(".counter")
+const counter2 = counter.textContent;
 
-let humanSelection = getHumanChoice().toUpperCase();
-let computerSelection = getComputerChoice().toUpperCase();
-console.log("Your choice: " + humanSelection)
-console.log("Computer choice: " + computerSelection)
+  rock.addEventListener("click", () => {
+    humanSelection ="ROCK";
+    computerSelection = getComputerChoice().toUpperCase();
+    playRound(humanSelection, computerSelection);
+    myScore.innerHTML = `${myScore2} <br><br>&nbsp&nbsp&nbsp&nbsp${humanSelection}`
+    enemyScore.innerHTML = `${enemyScore2} <br><br>&nbsp&nbsp&nbsp&nbsp${computerSelection}`
+    counter.innerHTML = `${counter2} <br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${humanScore}:${computerScore}`
+  })
 
-playRound(humanSelection, computerSelection)
+  paper.addEventListener("click", () => {
+    humanSelection ="PAPER"
+    computerSelection = getComputerChoice().toUpperCase();
+    playRound(humanSelection, computerSelection);
+    myScore.innerHTML = `${myScore2} <br><br>&nbsp&nbsp&nbsp&nbsp${humanSelection}`
+    enemyScore.innerHTML = `${enemyScore2} <br><br>&nbsp&nbsp&nbsp&nbsp${computerSelection}`
+    counter.innerHTML = `${counter2} <br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${humanScore}:${computerScore}`
+  })
 
-console.log("Your score: " + humanScore)
-console.log("Computer score: " + computerScore)
-
-}
+  scissors.addEventListener("click", () => {
+    humanSelection ="SCISSORS"
+    computerSelection = getComputerChoice().toUpperCase();
+    playRound(humanSelection, computerSelection);
+    myScore.innerHTML = `${myScore2} <br><br>&nbsp${humanSelection}`
+    enemyScore.innerHTML = `${enemyScore2} <br><br>&nbsp&nbsp&nbsp&nbsp${computerSelection}`
+    counter.innerHTML = `${counter2} <br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${humanScore}:${computerScore}`
+  })
